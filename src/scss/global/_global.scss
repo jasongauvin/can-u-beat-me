@@ -1,0 +1,100 @@
+// ==============================================
+// GLOBAL STYLE
+// ==============================================
+
+/** Personnal order -----------------------------
+
+* color / background / border
+* width / height / max-width / max-height
+* margin / padding
+* font-* / text-*
+* display / flex-* / justify / align-*
+* position / top / bottom / left / right / z-index
+* opacity
+* animation / transition
+* others
+**/
+
+body {
+    // I -  variables
+    background: $mainBackground;
+    color: $mainColor;
+    font-family: $mainFont;
+}
+.header {
+    width: 100%;
+    height: 50px;
+    background: red;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    &__title {
+        @include font-size(24px);
+    }
+    &__nav {
+        &__link {
+            @include font-size(16px);
+            margin: 0px 10px;
+        }
+    }
+}
+.progressBars {
+    width: 100%;
+    height: 50px;
+    background: blue;
+    display: flex;
+    justify-content: center;
+    &__progressBarBox {
+        width: 33%;
+        height: 50px;
+        border: 1px #fff solid;
+        @extend %displayCentered;
+        &__parent {
+            width: calc(100% - 2 * 20px);
+            height: 10px;
+            background: #fff;
+            &__child {
+                width: 0;
+                max-width: 100%;
+                height: 10px; 
+                transition: all 1s ease-in-out;
+            }
+        }
+        &__span {
+            margin-top: 10px;
+        }
+    }
+}
+
+#easy {
+    div {
+        div {
+            background: green
+        }
+    }
+};
+#medium {
+    div {
+        div {
+            background: orange
+        }
+    }
+}
+#hard {
+    div {
+        div {
+            background: red
+        }
+    }
+}
+
+.exercices {
+    width: 100%;
+    height: auto;
+    &__exercice {
+        width: auto;
+        height: 250px;
+        margin: 20px;
+        background: #666;
+    }
+}

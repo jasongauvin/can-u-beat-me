@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="414px" height="692px" viewBox="0 0 414 692" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 50.2 (55047) - http://www.bohemiancoding.com/sketch -->
+    <title>Group</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Group">
+            <g id="cocktail" fill-rule="nonzero">
+                <polygon id="Shape" fill="#00AD00" points="176.851562 186.464844 84.894531 30.03125 0 30.03125 0 0 102.078125 0 202.742188 171.246094"></polygon>
+                <polygon id="Shape" fill="#E1E1E3" points="292.617188 481.96875 292.617188 512 143.34375 512 143.34375 481.96875 202.960938 481.96875 202.960938 354.359375 232.992188 354.359375 232.992188 481.96875"></polygon>
+                <polygon id="Shape" fill="#EFEFEF" points="413.421875 101.550781 371.175781 161.847656 232.992188 359.09375 217.988281 380.515625 217.976562 380.527344 202.960938 359.09375 64.777344 161.847656 22.542969 101.550781"></polygon>
+                <polygon id="Shape" fill="#E1E1E3" points="232.992188 359.09375 232.992188 481.96875 292.617188 481.96875 292.617188 512 217.988281 512 217.988281 101.550781 413.421875 101.550781 371.175781 161.847656"></polygon>
+                <polygon id="Shape" fill="#FF4F19" points="371.175781 161.847656 217.988281 380.515625 217.976562 380.527344 64.777344 161.847656"></polygon>
+                <polygon id="Shape" fill="#DD2B19" points="371.175781 161.847656 217.988281 380.515625 217.988281 161.847656"></polygon>
+                <polygon id="Shape" fill="#FFA900" points="156.152344 215.371094 185.792969 215.371094 185.792969 245.011719 156.152344 245.011719"></polygon>
+                <polygon id="Shape" fill="#FF8800" points="250.363281 215.371094 280.003906 215.371094 280.003906 245.011719 250.363281 245.011719"></polygon>
+                <polygon id="Shape" fill="#FFA900" points="203.160156 272.648438 232.800781 272.648438 232.800781 302.289062 203.160156 302.289062"></polygon>
+                <polygon id="Shape" fill="#FF8800" points="217.988281 272.648438 232.800781 272.648438 232.800781 302.289062 217.988281 302.289062"></polygon>
+            </g>
+            <g id="S" transform="translate(294.000000, 542.000000)" fill="#00AD00">
+                <rect id="Rectangle" x="0" y="0" width="30" height="30"></rect>
+                <rect id="Rectangle" x="30" y="0" width="30" height="30"></rect>
+                <rect id="Rectangle" x="60" y="0" width="30" height="30"></rect>
+                <rect id="Rectangle" x="0" y="120" width="30" height="30"></rect>
+                <rect id="Rectangle" x="0" y="30" width="30" height="30"></rect>
+                <rect id="Rectangle" x="60" y="60" width="30" height="30"></rect>
+                <rect id="Rectangle" x="30" y="60" width="30" height="30"></rect>
+                <rect id="Rectangle" x="0" y="60" width="30" height="30"></rect>
+                <rect id="Rectangle" x="60" y="90" width="30" height="30"></rect>
+                <rect id="Rectangle" x="60" y="120" width="30" height="30"></rect>
+                <rect id="Rectangle" x="30" y="120" width="30" height="30"></rect>
+            </g>
+            <g id="E" transform="translate(174.000000, 542.000000)" fill="#FF4F19">
+                <rect id="Rectangle" x="0" y="0" width="30" height="30"></rect>
+                <rect id="Rectangle" x="30" y="0" width="30" height="30"></rect>
+                <rect id="Rectangle" x="0" y="30" width="30" height="30"></rect>
+                <rect id="Rectangle" x="0" y="60" width="30" height="30"></rect>
+                <rect id="Rectangle" x="30" y="60" width="30" height="30"></rect>
+                <rect id="Rectangle" x="0" y="90" width="30" height="30"></rect>
+                <rect id="Rectangle" x="0" y="120" width="30" height="30"></rect>
+                <rect id="Rectangle" x="30" y="120" width="30" height="30"></rect>
+                <rect id="Rectangle" x="60" y="0" width="30" height="30"></rect>
+                <rect id="Rectangle" x="60" y="60" width="30" height="30"></rect>
+                <rect id="Rectangle" x="60" y="120" width="30" height="30"></rect>
+            </g>
+            <g id="F" transform="translate(54.000000, 542.000000)" fill="#DD2B19">
+                <rect id="Rectangle" x="0" y="0" width="30" height="30"></rect>
+                <rect id="Rectangle" x="30" y="0" width="30" height="30"></rect>
+                <rect id="Rectangle" x="60" y="0" width="30" height="30"></rect>
+                <rect id="Rectangle" x="0" y="120" width="30" height="30"></rect>
+                <rect id="Rectangle" x="0" y="60" width="30" height="30"></rect>
+                <rect id="Rectangle" x="30" y="60" width="30" height="30"></rect>
+                <rect id="Rectangle" x="0" y="30" width="30" height="30"></rect>
+                <rect id="Rectangle" x="0" y="90" width="30" height="30"></rect>
+            </g>
+        </g>
+    </g>
+</svg>
