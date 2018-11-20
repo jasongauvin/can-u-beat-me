@@ -1,8 +1,8 @@
 let theProgressBars = [1, 1, 1];
 let theExBools = [
 	[true, true, false],
-	[false, false, false],
-	[false, false, false],
+	[false, true, true],
+	[true, true, true],
 ];
 let theAlreadyChecked = [
 	[false, false, false],
@@ -29,7 +29,7 @@ const getAlreadyChecked = () => {
 	theAlreadyChecked[0] = JSON.parse(localStorage.alreadyCheckedEasy);
 	theAlreadyChecked[1] = JSON.parse(localStorage.alreadyCheckedMedium);
 	theAlreadyChecked[2] = JSON.parse(localStorage.alreadyCheckedHard);
-}
+};
 const updateProgressBars = () => {
 	const strings = ['Easy', 'Medium', 'Hard'];
 	getProgressBars();
@@ -40,26 +40,37 @@ const updateProgressBars = () => {
 		document.querySelectorAll('.progressBars__progressBarBox__span')[i].innerHTML = `${strings[i]}: ${theProgressBars[i]}%`;
 	}
 };
+
+const updateVerificationSuccess = (i, DOMverifMessage, DOMverifButton) => {
+	DOMverifMessage[i].innerHTML = 'Congrats ! You finished this exercice !';
+	DOMverifMessage[i].style.color = 'green';
+	DOMverifButton[i].style.cursor = 'not-allowed';
+	DOMverifButton[i].style.opacity = '0.2';
+	DOMverifButton[i].style.pointerEvents = 'none';
+	DOMverifButton[i].style.background = 'green';
+	DOMverifButton[i].innerHTML = 'Congrats !';
+};
+const updateVerificationFail = (i, DOMverifMessage, DOMverifButton) => {
+	DOMverifMessage[i].innerHTML = 'Hmm hm ! Something happened wrong...';
+	DOMverifMessage[i].style.color = 'red';
+	DOMverifButton[i].style.background = 'red';
+	DOMverifButton[i].innerHTML = 'Try again';
+};
 const updateVerification = (index, DOMverifMessage, DOMverifButton) => {
 	getAlreadyChecked();
 	for (let i = 0; i < 3; i++) {
 		if (theAlreadyChecked[index][i]) {
+			console.log(theAlreadyChecked[index][i]);
 			if (theExBools[index][i]) {
-				DOMverifMessage[i].innerHTML = 'Congrats ! You finished this exercice !';
-				DOMverifMessage[i].style.color = 'green';
-				DOMverifButton[i].style.cursor = 'not-allowed';
-				DOMverifButton[i].style.opacity = '0.2';
-				DOMverifButton[i].style.pointerEvents = 'none';
-				DOMverifButton[i].style.background = 'green';
+				console.log(theExBools[index][i]);
+				updateVerificationSuccess(i, DOMverifMessage, DOMverifButton);
 			}
 			else {
-				DOMverifMessage[i].innerHTML = 'Hmm hm ! Something happened wrong...';
-				DOMverifMessage[i].style.color = 'red';
-				DOMverifButton[i].style.background = 'red';
+				updateVerificationFail(i, DOMverifMessage, DOMverifButton);
 			}
 		}
 	}
-} 
+};
 const updatePgBar = (name, index, DOMprogressBar, DOMspan, DOMverifButton, DOMverifMessage) => {
 	// II - loop all the buttons of a difficulty
 
@@ -80,12 +91,7 @@ const updatePgBar = (name, index, DOMprogressBar, DOMspan, DOMverifButton, DOMve
 				// set the span % with new progress bar %
 				DOMspan.innerHTML = `${name}: ${newProgressBar}%`;
 
-				DOMverifMessage[i].innerHTML = 'Congrats ! You finished this exercice !';
-				DOMverifMessage[i].style.color = 'green';
-				DOMverifButton[i].style.cursor = 'not-allowed';
-				DOMverifButton[i].style.opacity = '0.2';
-				DOMverifButton[i].style.pointerEvents = 'none';
-				DOMverifButton[i].style.background = 'green';
+				updateVerificationSuccess(i, DOMverifMessage, DOMverifButton);
 
 				// III - update the current changes
 				// in local first
@@ -98,9 +104,7 @@ const updatePgBar = (name, index, DOMprogressBar, DOMspan, DOMverifButton, DOMve
 			else {
 				console.log('❌ | False !');
 
-				DOMverifMessage[i].innerHTML = 'Hmm hm ! Something happened wrong...';
-				DOMverifMessage[i].style.color = 'red';
-				DOMverifButton[i].style.background = 'red';
+				updateVerificationFail(i, DOMverifMessage, DOMverifButton);
 
 				theExBools[index][i] = false;
 				// in the localStorage second
