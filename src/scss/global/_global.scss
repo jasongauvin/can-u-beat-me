@@ -23,67 +23,109 @@ body {
 }
 .header {
     width: 100%;
-    height: 50px;
-    background: red;
+    height: 60px;
+    background: $header;
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-start;
     align-items: center;
+    &__img {
+        height: 50px;
+        width: auto;
+        margin: 10px;
+    }
     &__title {
         @include font-size(24px);
+        a {
+            color: #fff;
+            text-decoration: none;
+        }
     }
     &__nav {
+        padding: 0 10px;
+        position: absolute;
+        right: 0;
         &__link {
-            @include font-size(16px);
+            color: #F1F1F1;
             margin: 0px 10px;
+            @include font-size(18px);
+            text-decoration: none;
+            transition: all 0.3s ease-out;
+            &:hover {
+                &:nth-child(1) {
+                    color: $green;
+                }
+                &:nth-child(2) {
+                    color: $orange;
+                }
+                &:nth-child(3) {
+                    color: $red;
+                }
+            }
         }
     }
 }
 .progressBars {
     width: 100%;
-    height: 50px;
-    background: blue;
+    height: 60px;
+    background: $progressBars;
     display: flex;
     justify-content: center;
+    border-top: 2px $border solid;
+    border-bottom: 2px $header solid;
+    position: sticky;
+    top: 0;
     &__progressBarBox {
         width: 33%;
-        height: 50px;
-        border: 1px #fff solid;
         @extend %displayCentered;
         &__parent {
+            background: #fff;
             width: calc(100% - 2 * 20px);
             height: 10px;
-            background: #fff;
+            margin: 10px;
+            border-radius: 5px;
+            overflow: hidden;
             &__child {
                 width: 0;
                 max-width: 100%;
                 height: 10px; 
+                border-radius: 5px;
                 transition: all 1s ease-in-out;
             }
         }
         &__span {
-            margin-top: 10px;
+            margin: 0 10px 10px;
+            @include font-size(16px);
+            font-family: $textFont;
         }
     }
 }
+.pageTitle {
+    background: $title;
+    color: $textDark;
+    width: 100%;
+    height: 60px;
+    @include font-size(24px);
+    @extend %displayCentered;
 
-#easy {
+}
+#easyPgBar {
     div {
         div {
-            background: green
+            background: $green;
         }
     }
 };
-#medium {
+#mediumPgBar {
     div {
         div {
-            background: orange
+            background: $orange;
         }
     }
 }
-#hard {
+#hardPgBar {
     div {
         div {
-            background: red
+            background: $red;
         }
     }
 }
@@ -92,9 +134,50 @@ body {
     width: 100%;
     height: auto;
     &__exercice {
+        background: $exercices;
+        border: 2px $border solid;
         width: auto;
-        height: 250px;
+        height: 500px;
         margin: 20px;
-        background: #666;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        &__title {
+            color: #000;
+            padding: 10px;
+            @include font-size(18px)
+        }
+    }
+}
+.workZone {
+    background: #999;
+    width: calc(100% - 2 * 10px);
+    height: 100%;
+    margin: 10px;
+}
+.verification {
+    background: $title;
+    width: 100%;
+    height: 50px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    &__checking {
+        color: #000;
+        font-family: $textFont;
+        @include font-size(18px);
+
+    }
+    &__button {
+        background: #888;
+        margin: 0 25px;
+        padding: 2px 5px; 
+        border: 2px $border solid;
+        border-radius: 2px;
+        @include font-size(16px);
+        cursor: pointer;
+        &:hover {
+            background: orange;
+        }
     }
 }
