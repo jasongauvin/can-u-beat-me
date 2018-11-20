@@ -1,8 +1,13 @@
-let theProgressBars = [34, 100, 67];
+let theProgressBars = [1, 1, 1];
 let theExBools = [
-	[true, true, true],
-	[true, true, true],
-	[true, true, true],
+	[true, true, false],
+	[false, false, false],
+	[false, false, false],
+];
+let theAlreadyChecked = [
+	[false, false, false],
+	[false, false, false],
+	[false, false, false],
 ];
 const setLocalStorage = () => {
 	localStorage.notEmpty = true;
@@ -10,6 +15,9 @@ const setLocalStorage = () => {
 	localStorage.exBoolsEasy = JSON.stringify(theExBools[0]);
 	localStorage.exBoolsMedium = JSON.stringify(theExBools[1]);
 	localStorage.exBoolsHard = JSON.stringify(theExBools[2]);
+	localStorage.alreadyCheckedEasy = JSON.stringify(theAlreadyChecked[0]);
+	localStorage.alreadyCheckedMedium = JSON.stringify(theAlreadyChecked[1]);
+	localStorage.alreadyCheckedHard = JSON.stringify(theAlreadyChecked[2]);
 	return console.log('📤 | localStorage set !');
 };
 const getProgressBars = () => {
@@ -17,6 +25,11 @@ const getProgressBars = () => {
 	console.log(theExBools);
 	return console.log('📥 | progressBars get !');
 };
+const getAlreadyChecked = () => {
+	theAlreadyChecked[0] = JSON.parse(localStorage.alreadyCheckedEasy);
+	theAlreadyChecked[1] = JSON.parse(localStorage.alreadyCheckedMedium);
+	theAlreadyChecked[2] = JSON.parse(localStorage.alreadyCheckedHard);
+}
 const updateProgressBars = () => {
 	const strings = ['Easy', 'Medium', 'Hard'];
 	getProgressBars();
@@ -27,13 +40,33 @@ const updateProgressBars = () => {
 		document.querySelectorAll('.progressBars__progressBarBox__span')[i].innerHTML = `${strings[i]}: ${theProgressBars[i]}%`;
 	}
 };
-const updatePgBar = (name, index, DOMprogressBar, DOMspan, DOMexs) => {
+const updateVerification = (index, DOMverifMessage, DOMverifButton) => {
+	getAlreadyChecked();
+	for (let i = 0; i < 3; i++) {
+		if (theAlreadyChecked[index][i]) {
+			if (theExBools[index][i]) {
+				DOMverifMessage[i].innerHTML = 'Congrats ! You finished this exercice !';
+				DOMverifMessage[i].style.color = 'green';
+				DOMverifButton[i].style.cursor = 'not-allowed';
+				DOMverifButton[i].style.opacity = '0.2';
+				DOMverifButton[i].style.pointerEvents = 'none';
+				DOMverifButton[i].style.background = 'green';
+			}
+			else {
+				DOMverifMessage[i].innerHTML = 'Hmm hm ! Something happened wrong...';
+				DOMverifMessage[i].style.color = 'red';
+				DOMverifButton[i].style.background = 'red';
+			}
+		}
+	}
+} 
+const updatePgBar = (name, index, DOMprogressBar, DOMspan, DOMverifButton, DOMverifMessage) => {
 	// II - loop all the buttons of a difficulty
 
 	// for all the bool button of the ex
 	for (let i = 0; i < 3; i++) {
 		// for every verification button I click
-		DOMexs[i].addEventListener('click', () => {
+		DOMverifButton[i].addEventListener('click', () => {
 			// getLocalStorage();
 			// if the current bool is true
 			console.log('after');
@@ -47,19 +80,29 @@ const updatePgBar = (name, index, DOMprogressBar, DOMspan, DOMexs) => {
 				// set the span % with new progress bar %
 				DOMspan.innerHTML = `${name}: ${newProgressBar}%`;
 
-				// III - update the current changes
+				DOMverifMessage[i].innerHTML = 'Congrats ! You finished this exercice !';
+				DOMverifMessage[i].style.color = 'green';
+				DOMverifButton[i].style.cursor = 'not-allowed';
+				DOMverifButton[i].style.opacity = '0.2';
+				DOMverifButton[i].style.pointerEvents = 'none';
+				DOMverifButton[i].style.background = 'green';
 
+				// III - update the current changes
 				// in local first
 				theProgressBars[index] = newProgressBar;
 				theExBools[index][i] = true;
-				console.log(theExBools[index][i]);
+				theAlreadyChecked[index][i] = true;
 				// in the localStorage second
 				setLocalStorage();
 			}
 			else {
 				console.log('❌ | False !');
+
+				DOMverifMessage[i].innerHTML = 'Hmm hm ! Something happened wrong...';
+				DOMverifMessage[i].style.color = 'red';
+				DOMverifButton[i].style.background = 'red';
+
 				theExBools[index][i] = false;
-				console.log(theExBools[index][i]);
 				// in the localStorage second
 				setLocalStorage();
 			}
@@ -77,30 +120,36 @@ if (typeof (Storage) !== 'undefined') {
 		'index': 0,
 		'DOMprogressBar': document.querySelector('#easyPgBar .progressBars__progressBarBox__parent__child'),
 		'DOMspan': document.querySelector('#easyPgBar span'),
-		'DOMexs': document.querySelectorAll('#Easy .verification__button'),
+		'DOMverifButton': document.querySelectorAll('#Easy .verification__button'),
+		'DOMverifMessage': document.querySelectorAll('#Easy .verification__checking'),
 	};
 	const Medium = {
 		'name': 'medium',
 		'index': 1,
 		'DOMprogressBar': document.querySelector('#mediumPgBar .progressBars__progressBarBox__parent__child'),
 		'DOMspan': document.querySelector('#mediumPgBar span'),
-		'DOMexs': document.querySelectorAll('#Medium .verification__button'),
+		'DOMverifButton': document.querySelectorAll('#Medium .verification__button'),
+		'DOMverifMessage': document.querySelectorAll('#Medium .verification__checking'),
 	};
 	const Hard = {
 		'name': 'hard',
 		'index': 2,
 		'DOMprogressBar': document.querySelector('#hardPgBar .progressBars__progressBarBox__parent__child'),
 		'DOMspan': document.querySelector('#hardPgBar span'),
-		'DOMexs': document.querySelectorAll('#Hard .verification__button'),
+		'DOMverifButton': document.querySelectorAll('#Hard .verification__button'),
+		'DOMverifMessage': document.querySelectorAll('#Hard .verification__checking'),
 	};
 	updateProgressBars();
 	if (document.querySelector('#Easy')) {
+		updateVerification(0, Easy.DOMverifMessage, Easy.DOMverifButton);
 		updatePgBar(...Object.values(Easy));
 	}
 	if (document.querySelector('#Medium')) {
+		updateVerification(1, Medium.DOMverifMessage, Medium.DOMverifButton);
 		updatePgBar(...Object.values(Medium));
 	}
 	if (document.querySelector('#Hard')) {
+		updateVerification(2, Hard.DOMverifMessage, Hard.DOMverifButton);
 		updatePgBar(...Object.values(Hard));
 	}
 }
