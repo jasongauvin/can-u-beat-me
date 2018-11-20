@@ -1,55 +1,79 @@
-const updatePgBar = (difficulty, localString, pgBar, DOMpgBar, DOMspan, DOMexs) => {
-	DOMpgBar.style.width = `${pgBar}%`;
-	for (let i = 0; i < DOMexs.length; i++) {
-		DOMexs[i].addEventListener('click', () => {
-			const newPgBar = parseInt(pgBar) + 33;
-			DOMpgBar.style.width = `${newPgBar}%`;
-			DOMspan.innerHTML = `${difficulty}: ${newPgBar}%`;
-			localStorage[localString] = newPgBar;
-			return pgBar = newPgBar;
-		});
-	}
-};
-
 if (typeof (Storage) !== 'undefined') {
-	if (
-		!localStorage.pgBarEasy &&
-		!localStorage.pgBarMedium &&
-		!localStorage.pgBarHard
-	) {
-		localStorage.pgBarEasy = 1;
-		localStorage.pgBarMedium = 1;
-		localStorage.pgBarHard = 1;
+	let theProgressBars = [34, 100, 67];
+	let theExBoolsEasy = [true, false, true];
+	let theExBoolsMedium = [false, true, false];
+	let theExBoolsHard = [true, false, false];
+
+	const setLocalStorage = () => {
+		localStorage.notEmpty = true;
+		localStorage.progressBars = JSON.stringify(theProgressBars);
+		localStorage.exBoolsEasy = JSON.stringify(theExBoolsEasy);
+		localStorage.exBoolsMedium = JSON.stringify(theExBoolsMedium);
+		localStorage.exBoolsHard = JSON.stringify(theExBoolsHard);
+		return console.log('📤 | localStorage set !');
+	};
+	const getLocalStorage = () => {
+		theProgressBars = JSON.parse(localStorage.progressBars);
+		theExBoolsEasy = JSON.parse(localStorage.exBoolsEasy);
+		theExBoolsMedium = JSON.parse(localStorage.exBoolsMedium);
+		theExBoolsHard = JSON.parse(localStorage.exBoolsHard);
+		return console.log('📥 | localStorage get !');
+	};
+
+	const updatePgBar = (name, myExBools, myProgressBar, DOMprogressBar, DOMspan, DOMexs) => {
+		// I - get localStorage and set all settings
+
+		getLocalStorage();
+		console.log(localStorage);
+		console.log(theProgressBars);
+		console.log(theExBoolsEasy);
+		console.log(theExBoolsMedium);
+		console.log(theExBoolsHard);
+		// set the progress bar
+		console.log(myProgressBar);
+		DOMprogressBar.style.width = `${theProgressBars[0]}%`;
+		// set the span %
+		DOMspan.innerHTML = `${name}: ${theProgressBars[0]}%`;
+
+		// II - loop all the buttons of a difficulty
+
+		// for all the bool button of the ex
+		for (let i = 0; i < myExBools.length; i++) {
+			// for every verification button I click
+			DOMexs[i].addEventListener('click', () => {
+				// if the current bool is true
+				if (myExBools[i]) {
+					console.log('Congrats !');
+					console.log(theProgressBars[0]);
+					// update the progress bar percent
+					const newProgressBar = theProgressBars[0] + 33;
+					// update the progress bar with new progress bar %
+					DOMprogressBar.style.width = `${newProgressBar}%`;
+					// set the span % with new progress bar %
+					DOMspan.innerHTML = `${name}: ${newProgressBar}%`;
+
+					theProgressBars[0] = newProgressBar;
+					console.log(theProgressBars);
+					setLocalStorage();
+					console.log(localStorage);
+				}
+			});
+		}
+	};
+
+	if (!localStorage.notEmpty) {
+		setLocalStorage();
 	}
 
 	const Easy = {
-		'name': 'Easy',
-		'localString': 'pgBarEasy',
-		'pgPercent': localStorage.pgBarEasy,
-		'DOMpgBar': document.querySelector('#easy div div'),
-		'DOMspan': document.querySelector('#easy span'),
-		'DOMexs': document.querySelectorAll('#easyExs section'),
+		'name': 'easy',
+		'myExBools': theExBoolsEasy,
+		'myProgressBar': theProgressBars[0],
+		'DOMprogressBar': document.querySelector('#easyPgBar .progressBars__progressBarBox__parent__child'),
+		'DOMspan': document.querySelector('#easyPgBar span'),
+		'DOMexs': document.querySelectorAll('#Easy .verification__button'),
 	};
-	const Medium = {
-		'name': 'Medium',
-		'localString': 'pgBarMedium',
-		'pgPercent': localStorage.pgBarMedium,
-		'DOMpgBar': document.querySelector('#medium div div'),
-		'DOMspan': document.querySelector('#medium span'),
-		'DOMexs': document.querySelectorAll('#mediumExs section'),
-	};
-	const Hard = {
-		'name': 'Hard',
-		'localString': 'pgBarHard',
-		'pgPercent': localStorage.pgBarHard,
-		'DOMpgBar': document.querySelector('#hard div div'),
-		'DOMspan': document.querySelector('#hard span'),
-		'DOMexs': document.querySelectorAll('#hardExs section'),
-	};
-
 	updatePgBar(...Object.values(Easy));
-	updatePgBar(...Object.values(Medium));
-	updatePgBar(...Object.values(Hard));
 }
 else {
 	console.warn('Sorry! No Web Storage support..');
