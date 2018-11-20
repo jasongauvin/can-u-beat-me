@@ -18,30 +18,30 @@
     <!-- Style -->
     <link rel="stylesheet" href="css/master.min.css">
 </head>
-<body>
+<body id="Medium">
     <header class="header">
-        <img src="" alt="" class="header__img">
-        <h1 class="header__title">Can you beat me ?</h1>
+        <img src="./assets/img/boxing.svg" alt="" class="header__img">
+        <h1 class="header__title"><a href="index.html">Can you beat me ?</a></h1>
         <nav class="header__nav">
-            <a href="index.html" class="header__nav__link">Easy</a>
-            <a href="ex1.html" class="header__nav__link">Medium</a>
-            <a href="ex2.html" class="header__nav__link">Hard</a>
+            <a href="easy.html" class="header__nav__link">Easy</a>
+            <a href="medium.html" class="header__nav__link">Medium</a>
+            <a href="hard.html" class="header__nav__link">Hard</a>
         </nav>
     </header>
     <section class="progressBars">
-        <div class="progressBars__progressBarBox" id="easy">
+        <div class="progressBars__progressBarBox" id="easyPgBar">
             <div class="progressBars__progressBarBox__parent">
                 <div class="progressBars__progressBarBox__parent__child"></div>
             </div>
             <span class="progressBars__progressBarBox__span">Easy: 0%</span>
         </div>
-        <div class="progressBars__progressBarBox" id="medium">
+        <div class="progressBars__progressBarBox" id="mediumPgBar">
             <div class="progressBars__progressBarBox__parent">
                 <div class="progressBars__progressBarBox__parent__child"></div>
             </div>
             <span class="progressBars__progressBarBox__span">Medium: 0%</span>
         </div>
-        <div class="progressBars__progressBarBox" id="hard">
+        <div class="progressBars__progressBarBox" id="hardPgBar">
             <div class="progressBars__progressBarBox__parent">
                 <div class="progressBars__progressBarBox__parent__child"></div>
             </div>
@@ -49,10 +49,29 @@
         </div>
         <span class="progressBars__progressBarBox__progression"></span>
     </section>
-    <section class="exercices" id="hardExs">
-        <section class="exercices__exercice"></section>
-        <section class="exercices__exercice"></section>
-        <section class="exercices__exercice"></section>
+    <h2 class="pageTitle">Medium</h2>
+    <section class="exercices">
+        <section class="exercices__exercice">
+            <h3 class="exercices__exercice__title">Exercice 2.1</h3>
+             <div class="workZone"></div>
+            <div class="verification">
+                <span class="verification__checking">checking...</span><button class="verification__button">Check</button>
+            </div>
+        </section>
+        <section class="exercices__exercice">
+            <h3 class="exercices__exercice__title">Exercice 2.2</h3>
+             <div class="workZone"></div>
+            <div class="verification">
+                <span class="verification__checking">checking...</span><button class="verification__button">Check</button>
+            </div>
+        </section>
+        <section class="exercices__exercice">
+            <h3 class="exercices__exercice__title">Exercice 2.3</h3>
+             <div class="workZone"></div>
+            <div class="verification">
+                <span class="verification__checking">checking...</span><button class="verification__button">Check</button>
+            </div>
+        </section>
     </section>
     <script src="js/app.min.js"></script>
 </body>

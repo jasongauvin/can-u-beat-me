@@ -76,5 +76,5 @@ if (typeof (Storage) !== 'undefined') {
 	updatePgBar(...Object.values(Easy));
 }
 else {
-	console.warn('Sorry! No Web Storage support..');
+	console.warn('⚠️ | Sorry! No Web Storage support..');
 }

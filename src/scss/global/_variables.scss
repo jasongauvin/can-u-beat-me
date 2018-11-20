@@ -3,11 +3,23 @@
 // ==============================================
 
 // colors - rgba - linear-gradients
-$mainBackground: #1a0000;
+$mainBackground: #bdbdbd;
 $mainColor: rgb(255, 251, 244);
+$green: #00db0e;
+$orange: #ffaf4f;
+$red: #ff4f4f;
+$textDark: rgb(0, 23, 39);
+
+$header: #496b99;
+$progressBars: #7896ac;
+$title: #96a8b1;
+$exercices: #fff;
+
+$border: #072f63;
 
 // font-family
-$mainFont: 'Niramit', sans-serif;
+$mainFont: 'Sedgwick Ave', cursive;
+$textFont: 'Niramit', sans-serif;
 
 // responsive breakpoints -----------------------
 $bp-small: 576px;
