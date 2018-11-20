@@ -17,14 +17,14 @@
 
 body {
     // I -  variables
-    background: $mainBackground;
-    color: $mainColor;
-    font-family: $mainFont;
+    background: $lightG;
+    color: #000;
+    font-family: $textFont;
 }
 .header {
     width: 100%;
     height: 60px;
-    background: $header;
+    background: $border;
     display: flex;
     justify-content: flex-start;
     align-items: center;
@@ -36,7 +36,7 @@ body {
     &__title {
         @include font-size(24px);
         a {
-            color: #fff;
+            color: #000;
             text-decoration: none;
         }
     }
@@ -45,11 +45,10 @@ body {
         position: absolute;
         right: 0;
         &__link {
-            color: #F1F1F1;
+            color: #000;
             margin: 0px 10px;
             @include font-size(18px);
             text-decoration: none;
-            transition: all 0.3s ease-out;
             &:hover {
                 &:nth-child(1) {
                     color: $green;
@@ -67,18 +66,18 @@ body {
 .progressBars {
     width: 100%;
     height: 60px;
-    background: $progressBars;
+    background: $darkG;
     display: flex;
     justify-content: center;
     border-top: 2px $border solid;
-    border-bottom: 2px $header solid;
+    border-bottom: 2px $border solid;
     position: sticky;
     top: 0;
     &__progressBarBox {
         width: 33%;
         @extend %displayCentered;
         &__parent {
-            background: #fff;
+            background: #000;
             width: calc(100% - 2 * 20px);
             height: 10px;
             margin: 10px;
@@ -95,13 +94,13 @@ body {
         &__span {
             margin: 0 10px 10px;
             @include font-size(16px);
-            font-family: $textFont;
         }
     }
 }
 .pageTitle {
-    background: $title;
+    background: $g;
     color: $textDark;
+    border-bottom: 2px $border solid;
     width: 100%;
     height: 60px;
     @include font-size(24px);
@@ -129,12 +128,11 @@ body {
         }
     }
 }
-
 .exercices {
     width: 100%;
     height: auto;
     &__exercice {
-        background: $exercices;
+        background: $g;
         border: 2px $border solid;
         width: auto;
         height: 500px;
@@ -150,13 +148,14 @@ body {
     }
 }
 .workZone {
-    background: #999;
-    width: calc(100% - 2 * 10px);
+    background: #fff;
+    border: 2px $border solid;
+    width: calc(100% - 2 * 12px);
     height: 100%;
     margin: 10px;
 }
 .verification {
-    background: $title;
+    background: $darkG;
     width: 100%;
     height: 50px;
     display: flex;
@@ -164,20 +163,37 @@ body {
     align-items: center;
     &__checking {
         color: #000;
-        font-family: $textFont;
         @include font-size(18px);
 
     }
     &__button {
-        background: #888;
+        background: #fff;
         margin: 0 25px;
         padding: 2px 5px; 
-        border: 2px $border solid;
+        border: 2px #000 solid;
         border-radius: 2px;
+        font-family: $textFont;
         @include font-size(16px);
         cursor: pointer;
         &:hover {
             background: orange;
         }
+    }
+}
+.footer {
+    background: $xDarkG;
+    border-top: 2px $border solid;
+    width: 100%;
+    height: 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    &__text {
+        margin: 10px;
+        @include font-size(16px);
+    }
+    &__nav {
+        margin: 10px;
+        @include font-size(16px);
     }
 }
