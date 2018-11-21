@@ -1,5 +1,5 @@
 <p align="center">
-    <img src="./front-end-starter.png" alt="front-end-starter" width="200"><br>
+    <img src="./cybm.png" alt="can you beat me" width="200"><br>
     <a href="https://gulpjs.com/">
         <img src="https://img.shields.io/badge/bundler-gulp-brightgreen.svg" alt="gulp">
     </a>
@@ -11,7 +11,7 @@
     </a>
 </p>
 
-# front-end-starter
+# Can You Beat Me
 
 - [I - Why use this](#i---why-use-this)
 - [II - Overall operation](#ii---overall-operation)
@@ -19,108 +19,14 @@
 - [IV - Add new files](#iv---add-new-files)
 - [V - Go further](#v---go-further)
 - [VI - Dependencies](#vi---dependencies)
-  
-## I - Why use this
 
-This starter aims to:
+## I - What is it
 
-- make the development of a website **easier**, **faster** and more **efficient**
-- be able to use **advanced technologies** and languages, without worrying about the **browsers retrocompatibilities**
-- see changes in **real time** while **developing**
-- have a **clean** and **qualitative** result ready to **production launch**
-- have **fun** developing stuff
+**Can You Beat Me** is a really simple MOOC for front-end beginners made in **2 days**
 
-> It's that we can name a **bundler**
+Their progression is stocked in the **browser local storage**
 
-## II - Overall operation
-
-### 1. What I use
-
-For that, I chose to use [Gulp](https://gulpjs.com/), a toolkit which allows to develop **matic tasks**, for exampl
-
-- **copy** / **move** files
-- **compilation** of several files
-- **compatibility** of languages for **actual browsers**
-- **all** at the same time
-
-### 2. Concretely
-
-Concretely, we have a **source** ( `./src` ) folder for **developement**, and a **production** ( `./public` ) folder, for **production** (yes).
-
-⚠️ - The **public files** are ignored, because they don't have to be pushed.
-
-#### a) HTML
-
-***HTML*** files will be:
-
-- **copied** from **source** folder
-- **minified**
-- **pasted** into the **prod** folder
-
-#### b) SCSS
-
-**SCSS** files will be:
-
-- **imported** in `master.scss`
-- **copied** from **source** folder
-- **compiled** from *SCSS* to *CSS*
-- **minified** in the cleanest way
-- **renamed** & **pasted** into the **prod** folder
-
-#### c) JS
-
-***SCSS*** files will be:
-
-- **imported** in `app.js`
-- **copied** from **source** folder
-- **compiled** from **ES6** to **ES5**
-- **uglified** (minified with **functions** and **variables** renamed)
-- **renamed** & **pasted** into the **prod** folder
-
-#### d) Assets
-
-**Assets** will be:
-
-- **copied** from **source** folder
-- **pasted** into the **prod** folder
-
-### 3. Tree
-
-```bash
-├── public
-│   └── .gitkeep
-├── src
-│   ├── assets
-│   │   └── img
-│   ├── index.html
-│   ├── js
-│   │   ├── app.js
-│   │   ├── functions.js
-│   │   └── ui.js
-│   └── scss
-│       ├── global
-│       │   ├── _extends.scss
-│       │   ├── _fonts.scss
-│       │   ├── _global.scss
-│       │   ├── _keyframes.scss
-│       │   ├── _mixins.scss
-│       │   ├── _reset.scss
-│       │   └── _variables.scss
-│       └── master.scss
-├── website_assets
-│   ├── .htaccess
-│   ├── robots.txt
-│   └── sitemap.xml
-├── front-end-starter.png
-├── gulpfile.js
-├── LICENSE
-├── package-lock.json
-├── package.json
-├── README.md
-└── yarn.lock
-```
-
-## III - Make it work
+## II - Make it work
 
 > if you have gulp **globally installed**, just `npm i && gulp` or `yarn && gulp` at the **root** of the starter.
 
@@ -144,102 +50,28 @@ There are 3 things you need to know:
 
 But the best way is just `gulp`: It will create a **localhost** with **BrowerSync**, **watch** your files and **put modifications** in the browser in **real-time**.
 
-## IV - Add new files
+## III - Exercices (FR)
 
-### 1. HTML
+### Easy
 
-- Go to `./src`
-- **Create** your file
-- Don't forget to **copy** the **style** and **script** link:
+#### Exercice 1 - Mettre à jour un tableau d'objets
 
-```HTML
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <link rel="stylesheet" href="css/master.min.css">
-    </head>
-    <body>
-        <!-- Code goes here -->
-        <script src="js/app.min.js" charset="UTF-8"></script>
-    </body>
-</html>
-```
+#### Exercice 2 - Afficher un message en fonction de l'âge
 
-### 2. SCSS
+#### Exercice 3 - Réaliser un faux loader
 
-- Go to `src/scss`
-- **Create** your file with **this** structure: `_filename.scss`
-- Don't forget to **import** this new file in `master.scss` like that: `@import: 'component/filename'`
+### Medium
 
-### 3. JS
+#### Exercice 1 - Générateur de taille aléatoire
 
-- Go to `src/js`
-- **Create** your file with **this** structure: `filename.js`
-- Don't forget to **import** this new file in `app.js` like that: `import: './filename'`
+#### Exercice 2 - Générateur de couleur aléatoire
 
-### 4. Assets
+#### Exercice 3 - Afficher / Cacher un menu
 
-- Go to `src/ASSETS`
-- **Add** some files
+### Hard
 
-**Warning**: a little **specification**: in your files, you have to link your assets who are **in the** `./public` **folder**. It will be **fixed** soon
+#### Exercice 1 - Déplacer un personnage avec les touches du clavier
 
-## V - Go further
+#### Exercice 2 - Changer la couleur d'un header en fonction du scroll
 
-> If your want to add some data in front-end, or website SEO models.
-
-### 1. JSON
-
-If you look at the `gulpfile.js` file, you will see that there is a **commented task** named `JSON`. Like the **HTML** task, ***JSON*** will be:
-
-- **copied** from **source** folder
-- **minified**
-- **pasted** into the **prod** folder
-
-Add **JSON files** in your project could be great if you add some **data** or **dynamic content**.
-
-### 2. Website assets
-
-There is a `website_assets` folder at the root which contains some SEO model files:
-
-- a `.htaccess`, who can be used to **add some site-specific configurations for apache**
-- a `sitemap.xml`, used to **reference** all **internal links** of your website
-- a `robots.txt`, to choose what you want to **index** and **reference** and link the sitemap
-
-Like the **JSON** task, the ***website assets*** will be:
-
-- **copied** from **source** folder
-- **minified**
-- **pasted** into the **prod** folder
-
-⚠️ - In the **source** files, they are placed in the `website_assets folder`, but in your website they have to be at the **root directory of your website**, except for your **sitemap**.
-
-## VI - Dependencies
-
-### 1. Gulp
-
-```JSON
-"gulp": "^3.9.1",
-"gulp-babel": "^8.0.0",
-"gulp-clean-css": "^3.10.0",
-"gulp-htmlmin": "^5.0.1",
-"gulp-jsonminify": "^1.1.0",
-"gulp-plumber": "^1.2.0",
-"gulp-rename": "^1.4.0",
-"gulp-resolve-url": "0.0.2",
-"gulp-sass": "^4.0.2",
-"gulp-sourcemaps": "^2.6.4",
-"gulp-uglify-es": "^1.0.4",
-```
-
-### 2. Others
-
-```JSON
-"@babel/core": "^7.1.5",
-"@babel/preset-env": "^7.1.5",
-"browser-sync": "^2.26.3",
-"eslint": "^5.9.0",
-"eslint-plugin-import": "^2.14.0",
-"node-sass": "^4.10.0",
-"webpack-stream": "^5.1.1"
-```
+#### Exercice 3 - Générer une bulle de couleur et de taille aléatoire au clic
