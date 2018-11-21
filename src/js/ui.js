@@ -44,17 +44,17 @@ const updateProgressBars = () => {
 const updateVerificationSuccess = (i, DOMverifMessage, DOMverifButton) => {
 	DOMverifMessage[i].innerHTML = 'Congrats ! You finished this exercice !';
 	DOMverifMessage[i].style.color = 'green';
-	DOMverifButton[i].style.cursor = 'not-allowed';
-	DOMverifButton[i].style.opacity = '0.2';
-	DOMverifButton[i].style.pointerEvents = 'none';
+	DOMverifButton[i].innerHTML = 'SUCCESS !';
 	DOMverifButton[i].style.background = 'green';
-	DOMverifButton[i].innerHTML = 'Congrats !';
+	DOMverifButton[i].style.opacity = '0.2';
+	DOMverifButton[i].style.cursor = 'not-allowed';
+	DOMverifButton[i].style.pointerEvents = 'none';
 };
 const updateVerificationFail = (i, DOMverifMessage, DOMverifButton) => {
 	DOMverifMessage[i].innerHTML = 'Hmm hm ! Something happened wrong...';
 	DOMverifMessage[i].style.color = 'red';
 	DOMverifButton[i].style.background = 'red';
-	DOMverifButton[i].innerHTML = 'Try again';
+	DOMverifButton[i].innerHTML = 'FAILED !';
 };
 const updateVerification = (index, DOMverifMessage, DOMverifButton) => {
 	getAlreadyChecked();
