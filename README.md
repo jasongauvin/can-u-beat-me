@@ -15,7 +15,7 @@
 
 - [I - What is it](#i---what-is-it)
 - [II - Make it work](#ii---make-it-work)
-- [III - Exercices(FR)](#iii---exercices(fr))
+- [III - Exercices](#iii---exercices)
 
 ## I - What is it
 
@@ -47,7 +47,7 @@ There are 3 things you need to know:
 
 But the best way is just `gulp`: It will create a **localhost** with **BrowerSync**, **watch** your files and **put modifications** in the browser in **real-time**.
 
-## III - Exercices(FR)
+## III - Exercices
 
 ### Easy
 
