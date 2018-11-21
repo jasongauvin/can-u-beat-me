@@ -13,12 +13,9 @@
 
 # Can You Beat Me
 
-- [I - Why use this](#i---why-use-this)
-- [II - Overall operation](#ii---overall-operation)
-- [III - Make it work](#iii---make-it-work)
-- [IV - Add new files](#iv---add-new-files)
-- [V - Go further](#v---go-further)
-- [VI - Dependencies](#vi---dependencies)
+- [I - What is it](#i---what-is-it)
+- [II - Make it work](#ii---make-it-work)
+- [III - Exercices(FR)](#iii---exercices(fr))
 
 ## I - What is it
 
@@ -50,7 +47,7 @@ There are 3 things you need to know:
 
 But the best way is just `gulp`: It will create a **localhost** with **BrowerSync**, **watch** your files and **put modifications** in the browser in **real-time**.
 
-## III - Exercices (FR)
+## III - Exercices(FR)
 
 ### Easy
 
